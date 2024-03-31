@@ -1,4 +1,4 @@
-package org.anotherkyle.commonlib.util.cryptor;
+package org.anotherkyle.democryptorap.common.cryptor;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -83,7 +83,7 @@ public class AESUtil {
             throws NoSuchAlgorithmException, NoSuchPaddingException,
             InvalidKeyException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
 
-        Rfc2898KeyGenUtil keyGenerator = null;
+        Rfc2898KeyGenUtil keyGenerator;
         keyGenerator = new Rfc2898KeyGenUtil(keyBytes, keyBytes, 1000);
 
         byte[] bKey = keyGenerator.getBytes(32);

@@ -1,4 +1,4 @@
-package org.anotherkyle.commonlib.util.cryptor;
+package org.anotherkyle.democryptorap.common.cryptor;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
@@ -87,7 +87,7 @@ public class HashUtil {
     }
 
     private static String byteToHex(byte[] stream) {
-        StringBuffer hexStrBuffer = new StringBuffer();
+        StringBuilder hexStrBuffer = new StringBuilder();
         String tmpStr;
         for (byte b : stream) {
             tmpStr = (Integer.toHexString(b & 0XFF));

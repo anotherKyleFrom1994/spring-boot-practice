@@ -1,4 +1,4 @@
-package org.anotherkyle.commonlib.util.cryptor;
+package org.anotherkyle.democryptorap.common.cryptor;
 
 import org.bouncycastle.util.Arrays;
 
@@ -14,9 +14,9 @@ import java.security.NoSuchAlgorithmException;
  */
 public class Rfc2898KeyGenUtil {
 
-    private Mac _hmacSha1;
-    private byte[] _salt;
-    private int _iterationCount;
+    private final Mac _hmacSha1;
+    private final byte[] _salt;
+    private final int _iterationCount;
 
     private byte[] _buffer = new byte[20];
     private int _bufferStartIndex = 0;

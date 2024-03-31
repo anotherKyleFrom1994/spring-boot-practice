@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatusCode;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.lang.Nullable;
 import org.springframework.util.MultiValueMap;
@@ -110,11 +110,11 @@ public class APIUtil {
         if (headers.header("content-type").contains(MediaType.APPLICATION_JSON_VALUE)
                 || headers.header("Content-Type").contains(MediaType.APPLICATION_JSON_VALUE)) {
             res = resp.bodyToMono(JsonNode.class)
-                    .map(o -> new Response(resp.statusCode(), o));
+                    .map(o -> new Response(HttpStatus.valueOf(HttpStatus.valueOf(resp.statusCode().value()).value()), o));
         } else
             res = resp.bodyToMono(String.class)
-                    .map(s -> new Response(resp.statusCode(), JsonUtil.wrapPureText(s)))
-                    .defaultIfEmpty(new Response(resp.statusCode(), JsonUtil.objectMapper.createObjectNode()));
+                    .map(s -> new Response(HttpStatus.valueOf(resp.statusCode().value()), JsonUtil.wrapPureText(s)))
+                    .defaultIfEmpty(new Response(HttpStatus.valueOf(resp.statusCode().value()), JsonUtil.objectMapper.createObjectNode()));
 
         return res.onErrorMap(RuntimeException::new);
     }
@@ -126,11 +126,11 @@ public class APIUtil {
 
         if (headers.contentType().filter(MediaType.APPLICATION_JSON::equals).isPresent()) {
             res = resp.bodyToFlux(JsonNode.class)
-                    .map(o -> new Response(resp.statusCode(), o));
+                    .map(o -> new Response(HttpStatus.valueOf(resp.statusCode().value()), o));
         } else
             res = resp.bodyToFlux(String.class)
-                    .map(s -> new Response(resp.statusCode(), JsonUtil.wrapPureText(s)))
-                    .defaultIfEmpty(new Response(resp.statusCode(), JsonUtil.objectMapper.createObjectNode()));
+                    .map(s -> new Response(HttpStatus.valueOf(resp.statusCode().value()), JsonUtil.wrapPureText(s)))
+                    .defaultIfEmpty(new Response(HttpStatus.valueOf(resp.statusCode().value()), JsonUtil.objectMapper.createObjectNode()));
 
         return res.onErrorMap(RuntimeException::new);
     }
@@ -138,7 +138,7 @@ public class APIUtil {
     @Data
     @AllArgsConstructor
     public static class Response {
-        private HttpStatusCode status;
+        private HttpStatus status;
         private JsonNode responseBody;
     }
 }

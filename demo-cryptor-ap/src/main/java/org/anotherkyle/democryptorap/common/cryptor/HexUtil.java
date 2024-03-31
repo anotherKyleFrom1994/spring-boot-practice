@@ -1,4 +1,4 @@
-package org.anotherkyle.commonlib.util.cryptor;
+package org.anotherkyle.democryptorap.common.cryptor;
 
 import java.io.File;
 import java.io.FileInputStream;

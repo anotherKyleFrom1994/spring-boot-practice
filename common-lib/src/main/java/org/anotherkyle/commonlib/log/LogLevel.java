@@ -1,7 +1,7 @@
 package org.anotherkyle.commonlib.log;
 
+import org.apache.logging.log4j.Level;
 import org.slf4j.Marker;
-import org.slf4j.event.Level;
 import org.slf4j.helpers.BasicMarkerFactory;
 
 public enum LogLevel {

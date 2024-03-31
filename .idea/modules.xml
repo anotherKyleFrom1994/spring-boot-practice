@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/demo-cryptor-ap/demo-cryptor-ap.iml" filepath="$PROJECT_DIR$/demo-cryptor-ap/demo-cryptor-ap.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-gateway/demo-gateway.iml" filepath="$PROJECT_DIR$/demo-gateway/demo-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-image-manager/demo-image-manager.iml" filepath="$PROJECT_DIR$/demo-image-manager/demo-image-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-management-ap/demo-management-ap.iml" filepath="$PROJECT_DIR$/demo-management-ap/demo-management-ap.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-user-manager/demo-user-manager.iml" filepath="$PROJECT_DIR$/demo-user-manager/demo-user-manager.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/spring-boot-practice.iml" filepath="$PROJECT_DIR$/.idea/spring-boot-practice.iml" />
     </modules>

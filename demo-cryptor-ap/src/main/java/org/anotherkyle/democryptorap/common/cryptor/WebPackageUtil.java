@@ -1,4 +1,4 @@
-package org.anotherkyle.commonlib.util.cryptor;
+package org.anotherkyle.democryptorap.common.cryptor;
 
 
 import com.fasterxml.jackson.core.type.TypeReference;

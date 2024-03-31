@@ -1,13 +1,13 @@
-package org.anotherkyle.democryptorap;
+package org.anotherkyle.demomanagementap;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoCryptorApApplication {
+public class DemoManagementApApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoCryptorApApplication.class, args);
+        SpringApplication.run(DemoManagementApApplication.class, args);
     }
 
 }
