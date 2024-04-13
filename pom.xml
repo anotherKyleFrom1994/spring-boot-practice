@@ -22,8 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>11</java.version>
         <springfox-boot.starter.version>3.0.0</springfox-boot.starter.version>
-        <spring-cloud-starter-config.version>3.1.8</spring-cloud-starter-config.version>
-        <spring-cloud-starter-netflix-eureka-client.version>3.1.7</spring-cloud-starter-netflix-eureka-client.version>
+        <jackson-datatype-jsr310.version>2.14.2</jackson-datatype-jsr310.version>
         <aspectjweaver.version>1.9.19</aspectjweaver.version>
         <r2dbc-postgresql.version>0.9.3.RELEASE</r2dbc-postgresql.version>
         <lombok.version>1.18.26</lombok.version>
@@ -35,6 +34,17 @@
     </properties>
 
     <dependencies>
+        <!-- Spring Boot Starter Security -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
         <!-- Spring Boot Reactive Web Starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -79,24 +89,12 @@
             <version>${springfox-boot.starter.version}</version>
         </dependency>
 
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.cloud</groupId>-->
-        <!--            <artifactId>spring-cloud-starter-config</artifactId>-->
-        <!--            <version>${spring-cloud-starter-config.version}</version>-->
-        <!--        </dependency>-->
-
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.cloud</groupId>-->
-        <!--            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
-        <!--            <version>${spring-cloud-starter-netflix-eureka-client.version}</version>-->
-        <!--        </dependency>-->
-
-
         <!-- Spring Data R2DBC (for reactive relational database support) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-r2dbc</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>r2dbc-postgresql</artifactId>
@@ -115,6 +113,12 @@
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
             <version>${jjwt.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson-datatype-jsr310.version}</version>
         </dependency>
 
         <dependency>

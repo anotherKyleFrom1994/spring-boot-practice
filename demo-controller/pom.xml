@@ -12,4 +12,92 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>demo-controller</name>
     <description>demo-controller</description>
+    <properties>
+        <java.version>17</java.version>
+        <spring-cloud-starter-config.version>3.1.8</spring-cloud-starter-config.version>
+        <spring-cloud-starter-netflix-eureka-client.version>3.1.7</spring-cloud-starter-netflix-eureka-client.version>
+        <springfox-boot.starter.version>3.0.0</springfox-boot.starter.version>
+        <lombok.version>1.18.26</lombok.version>
+        <common-lib.version>0.0.1</common-lib.version>
+        <cryptor-ap.version>0.0.1</cryptor-ap.version>
+        <user-manager.version>0.0.1</user-manager.version>
+        <image-manager.version>0.0.1</image-manager.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+            <version>${spring-cloud-starter-config.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <version>${spring-cloud-starter-netflix-eureka-client.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.anotherkyle</groupId>
+            <artifactId>common-lib</artifactId>
+            <version>${common-lib.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.anotherkyle</groupId>
+            <artifactId>demo-cryptor-ap</artifactId>
+            <version>${cryptor-ap.version}</version>
+            <classifier>client</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.anotherkyle</groupId>
+            <artifactId>demo-user-manager</artifactId>
+            <version>${user-manager.version}</version>
+            <classifier>client</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.anotherkyle</groupId>
+            <artifactId>demo-image-manager</artifactId>
+            <version>${image-manager.version}</version>
+            <classifier>client</classifier>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-devtools</artifactId>
+                    <optional>true</optional>
+                    <scope>runtime</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+
+    <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.txt</include>
+                    <include>**/*.sql</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.idgate.democontroller.DemoControllerApplication</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

@@ -7,10 +7,10 @@ import org.springframework.http.HttpStatusCode;
 
 @Getter
 public class RemoteApiCallException extends RuntimeException {
-    private HttpStatusCode status = HttpStatus.INTERNAL_SERVER_ERROR;
     private final JsonNode response;
+    private HttpStatusCode status = HttpStatus.INTERNAL_SERVER_ERROR;
 
-    public RemoteApiCallException(JsonNode response, HttpStatus status) {
+    public RemoteApiCallException(JsonNode response, HttpStatusCode status) {
         this.status = status;
         this.response = response;
     }
